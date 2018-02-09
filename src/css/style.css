@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Tillana:400,500,600');
+
+.my-container img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.6;
+}
+.backgimg {
+    padding: 0 0 71% 0;
+    background: url("img/Food.jpg") no-repeat;
+}
+
+.mycontent {
+    font-family: 'Tillana', cursive;
+    background: #ffffff7d;
+    border-radius: 5px;
+    display: block;
+    width: 67%;
+    margin: 203px auto 0px;
+    padding: 10px;
+    color: black;
+    text-align: center
+    
+}
+.register{
+    width: 30%;
+    font-size: 20px;
+    text-align: center
+}
+
+.formsave{
+    font-size: 20px;
+    
+}
+
+.title{
+    font-family: 'Tillana', cursive;
+    font-size: 20px;
+
+}
+.menu{
+    color:#007bff;
+}
