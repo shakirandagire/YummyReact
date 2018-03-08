@@ -12,19 +12,19 @@ class Main extends Component{
             <div className="container-fluid">
                 <div className="navbar-header">
                 <a className="navbar-brand title"><Link to="/main">Yummy Recipe App</Link></a>
-                    <ul className="nav navbar-nav title">
-                        <li><a><Link to="/main">Home</Link></a></li>
-                        <li><a><Link to="/register">Signup</Link></a></li>
-                        <li><a><Link to="/login">Login</Link></a></li>
-                    </ul>
+                    
                 </div>
             </div>
         </nav>
         <div className="mycontent">
             <h3> Do you love cooking and eating amazing food and cannot keep track of your favorite chef's recipe</h3> 
                 <h3> We have got you </h3>
-                <h3> View our amazing recipes by simply signing up</h3>
-                <button type="submit" className="btn btn-danger formsave"> Sign Up </button>
+                <h3> View our amazing recipes by simply login</h3>
+                 <button type="submit" className="btn btn-default formsave"><Link to="/login"> Login </Link></button>
+                <h4>Do not have an account with us:</h4>
+                <button type="submit" className="btn btn-default formsave"><Link to="/register"> Sign Up </Link></button>
+
+               
         </div>
       </div>
 

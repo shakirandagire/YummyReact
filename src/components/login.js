@@ -19,17 +19,20 @@ class Login extends Component{
   handleLogin = (event) => {
     const {email, password} = this.state
     let data = {
-      "email":email,
-      "password": password
+      email,
+      password
     }
     event.preventDefault();
     axios
     .post('http://127.0.0.1:5000/api/v1/auth/login',data)
     .then(response =>{
       notify.show(response.data.message, 'success', 4000);
+      localStorage.setItem('accessToken', response.data.access_token);
       this.props
       .history
-      .push('/home');
+      .push('/viewcategories');
+     
+      
     })
     .catch(error => {
         if (error.response)
@@ -71,6 +74,8 @@ class Login extends Component{
           </div>
       
         <button type="submit" className="btn btn-danger formsave">Login</button>
+
+        <p>Donot have an account with us:</p><Link to='/register'> Sign Up </Link>
         </form>
     
             

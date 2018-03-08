@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Login from './login'
 import { Link } from 'react-router-dom'
 class Home extends Component{
     render(){
@@ -16,7 +15,7 @@ class Home extends Component{
               <li><a>Categories</a></li>
             </ul>
             <ul className="nav navbar-nav navbar-right title">
-              <li><a><span className="glyphicon glyphicon-user"></span> Hallo, </a></li>
+              <li><a><span className="glyphicon glyphicon-user"></span> Hallo</a></li>
               <li><a>Logout</a></li>
             </ul>
             </div>
@@ -29,9 +28,9 @@ class Home extends Component{
         <h3> Add Recipe Categories for your favourite foods</h3>
 
         <button className="btn btn-default">
-          <a>
+          <Link to='/addcategories'>
            Create Category
-          </a>
+         </Link>
         </button>
                
       </div>     

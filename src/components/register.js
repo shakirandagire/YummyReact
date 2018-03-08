@@ -17,12 +17,12 @@ class Register extends Component{
     }
 
     handleRegister = (event) => {
-      const {email, password, security_question, security_answer} = this.state
+      const {email, password, security_question, security_answer} = this.state;
       let data = {
-        "email":email,
-        "password": password,
-        "security_question": security_question,
-        "security_answer": security_answer
+        email,
+        password,
+        security_question,
+        security_answer
 
       }
       event.preventDefault();
@@ -41,7 +41,6 @@ class Register extends Component{
           }
           else if(error.request){
             alert("Request not made")
-
           }
         });
       
