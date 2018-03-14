@@ -4,6 +4,7 @@ import axios from 'axios';
 import { notify } from 'react-notify-toast';
 import Pagination from './pagination';
 import Navigation from './Navigation';
+import { BASE_URL } from '../../src/constants';
 
 const Category = props => (
   <div className="col-sm-6 col-md-4" >
@@ -44,7 +45,7 @@ class ViewCategory extends Component {
   getCategories = () => {
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     axios
-      .get('http://127.0.0.1:5000/api/v1/categories/', { headers })
+      .get(`${BASE_URL}/api/v1/categories/`, { headers })
       .then((response) => {
         this.setState({ categories: response.data.categories, total: response.data.total });
       })
@@ -57,12 +58,11 @@ class ViewCategory extends Component {
       });
   }
 
-
   handlePage = (event, perPage, page) => {
     event.preventDefault();
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     axios
-      .get(`http://127.0.0.1:5000/api/v1/categories/?page=${page}`, { headers })
+      .get(`${BASE_URL}/api/v1/categories/?page=${page}`, { headers })
       .then((response) => {
         this.setState({ categories: response.data.categories });
       })
@@ -77,7 +77,7 @@ class ViewCategory extends Component {
   deleteCategories = (categoryId) => {
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     axios
-      .delete(`http://127.0.0.1:5000/api/v1/categories/${categoryId}`, { headers })
+      .delete(`${BASE_URL}/api/v1/categories/${categoryId}`, { headers })
       .then((response) => {
         notify.show(response.data.message, 'success');
         if (this.state.categories.length === 1) {
@@ -98,7 +98,7 @@ class ViewCategory extends Component {
   editCategories = (categoryId) => {
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     axios
-      .delete(`http://127.0.0.1:5000/api/v1/categories/${categoryId}`, { headers })
+      .delete(`${BASE_URL}/api/v1/categories/${categoryId}`, { headers })
       .then((response) => {
         notify.show(response.data.message, 'success', 4000);
         this.getCategories();
@@ -122,7 +122,7 @@ class ViewCategory extends Component {
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
 
     axios
-      .get(`http://127.0.0.1:5000/api/v1/categories/?q=${q}`, { headers })
+      .get(`${BASE_URL}/api/v1/categories/?q=${q}`, { headers })
       .then((response) => {
         const { categories } = response.data;
         this.setState({ categories });

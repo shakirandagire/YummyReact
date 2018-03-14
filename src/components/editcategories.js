@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
+import { BASE_URL } from '../../src/constants';
+
 
 class EditCategory extends Component {
     state = {
@@ -12,7 +14,7 @@ class EditCategory extends Component {
       const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
       const categoryId = this.props.match.params.id;
       axios
-        .get(`http://127.0.0.1:5000/api/v1/categories/${categoryId}`, { headers })
+        .get(`${BASE_URL}/api/v1/categories/${categoryId}`, { headers })
         .then((response) => {
           const category = response.data;
           this.setState({

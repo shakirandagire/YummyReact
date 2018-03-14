@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { notify } from 'react-notify-toast';
 import axios from 'axios';
+import { BASE_URL } from '../../src/constants';
 
 
 class Login extends Component {
@@ -23,7 +24,7 @@ class Login extends Component {
     };
     event.preventDefault();
     axios
-      .post('http://127.0.0.1:5000/api/v1/auth/login', data)
+      .post(`${BASE_URL}/api/v1/auth/login`, data)
       .then((response) => {
       // notify.show(response.data.message, 'success');
         localStorage.setItem('accessToken', response.data.access_token);

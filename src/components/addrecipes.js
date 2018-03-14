@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
 import Navigation from './Navigation';
+import { BASE_URL } from '../../src/constants';
 
 class AddRecipe extends Component {
     state = {
@@ -25,7 +26,7 @@ class AddRecipe extends Component {
         };
         event.preventDefault();
         axios
-          .post(`http://127.0.0.1:5000/api/v1/categories/${categoryId}/recipes`, payload, { headers })
+          .post(`${BASE_URL}/api/v1/categories/${categoryId}/recipes`, payload, { headers })
           .then((response) => {
             notify.show(response.data.message, 'success', 4000);
             this.props.history.push(`/viewrecipes/${categoryId}/recipes`);

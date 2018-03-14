@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
+import { BASE_URL } from '../../src/constants';
 
 class EditRecipe extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class EditRecipe extends Component {
     const catId = this.props.match.params.category_id;
     const recipeId = this.props.match.params.id;
     axios
-      .get(`http://127.0.0.1:5000/api/v1/categories/${catId}/recipes/${recipeId}`, { headers })
+      .get(`${BASE_URL}/api/v1/categories/${catId}/recipes/${recipeId}`, { headers })
       .then((response) => {
         this.setState({
           recipename: response.data.recipename,

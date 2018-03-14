@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
+import { BASE_URL } from '../../src/constants';
 
 class AddCategory extends Component {
     state = {
@@ -17,7 +18,7 @@ class AddCategory extends Component {
         const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
         event.preventDefault();
         axios
-          .post('http://127.0.0.1:5000/api/v1/categories/', this.state, { headers })
+          .post(`${BASE_URL}/api/v1/categories/`, this.state, { headers })
           .then((response) => {
             notify.show(response.data.message, 'success', 1000);
             this.props

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
 import Navigation from './Navigation';
+import Pagination from './pagination';
+import { BASE_URL } from '../../src/constants';
 
 const Recipe = props => (
   <div className="col-sm-6 col-md-4" >
@@ -32,6 +34,8 @@ class ViewRecipes extends Component {
     this.state = {
       recipes: [],
       q: '',
+      perPage: 6,
+      total: '',
     };
   }
   componentDidMount() {
@@ -41,7 +45,7 @@ class ViewRecipes extends Component {
       const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
       const categoryId = this.props.match.params.id;
       axios
-        .get(`http://127.0.0.1:5000/api/v1/categories/${categoryId}/recipes`, { headers })
+        .get(`${BASE_URL}/api/v1/categories/${categoryId}/recipes`, { headers })
         .then((response) => {
           this.setState({ recipes: response.data.recipes });
         })
@@ -58,7 +62,7 @@ class ViewRecipes extends Component {
       const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
       const categoryId = this.props.match.params.id;
       axios
-        .delete(`http://127.0.0.1:5000/api/v1/categories/${categoryId}/recipes/${recipeId}`, { headers })
+        .delete(`${BASE_URL}/api/v1/categories/${categoryId}/recipes/${recipeId}`, { headers })
         .then((response) => {
           notify.show(response.data.message, 'success', 4000);
           if (this.state.recipes.length === 1) {
@@ -88,15 +92,38 @@ class ViewRecipes extends Component {
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     const catId = this.props.match.params.id;
     axios
-      .get(`http://127.0.0.1:5000/api/v1/categories/${catId}/recipes?q=${q}`, { headers })
+      .get(`${BASE_URL}/api/v1/categories/${catId}/recipes?q=${q}`, { headers })
       .then((response) => {
         this.setState({ recipes: response.data.recipes });
+        if (this.state.q === '') {
+          if (!this.handleInputChange) {
+            this.getRecipes();
+          }
+        }
       })
       .catch((error) => {
         if (error.response) {
           notify.show(error.response.data.message, 'success');
         } else if (error.request) {
-          alert("Request not made");
+          notify.show("Request not made");
+        }
+      });
+  }
+
+  handlePage = (event, perPage, page) => {
+    event.preventDefault();
+    const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
+    const catId = this.props.match.params.id;
+    axios
+      .get(`${BASE_URL}/api/v1/categories/${catId}/recipes?page=${page}`, { headers })
+      .then((response) => {
+        this.setState({ recipes: response.data.recipes });
+      })
+      .catch((error) => {
+        if (error.response) {
+          notify.show(error.response.data.message);
+        } else if (error.request) {
+          notify.show("Request not made");
         }
       });
   }
@@ -136,7 +163,11 @@ class ViewRecipes extends Component {
             ))
           }
           </div>
-          <div className="row" />
+          <Pagination
+            perPage={this.state.perPage}
+            total={this.state.total}
+            handlePage={this.handlePage}
+          />
         </div>
       </div>
 
