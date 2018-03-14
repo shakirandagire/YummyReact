@@ -34,7 +34,7 @@ class ViewCategory extends Component {
     state = {
       categories: [],
       q: '',
-      per_page: 6,
+      perPage: 6,
       total: '',
     }
 
