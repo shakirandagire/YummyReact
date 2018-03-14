@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Tillana:400,500,600');
+@import url('https://fonts.googleapis.com/css?family=Tillana:400,500,600,700');
 
 .my-container img {
     position: absolute;
@@ -18,9 +18,9 @@
     background: #ffffff7d;
     border-radius: 5px;
     display: block;
-    width: 67%;
-    margin: 203px auto 0px;
-    padding: 10px;
+    width: 70%;
+    margin: 100px auto 0px;
+    padding: 5px;
     color: black;
     text-align: center
     
@@ -38,9 +38,14 @@
 
 .title{
     font-family: 'Tillana', cursive;
+    color: rgb(65, 65, 247);
     font-size: 20px;
+    text-align: right
 
 }
 .menu{
     color:#007bff;
+}
+.paginate{
+    display:inline-flex
 }

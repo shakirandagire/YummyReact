@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navigation/> should render navigation 1`] = `
+<nav
+  className="navbar navbar-expand-lg navbar-light bg-light"
+>
+  <a
+    className="navbar-brand"
+  >
+    <Link
+      replace={false}
+      to="/main"
+    >
+      Yummy Recipes
+    </Link>
+  </a>
+  <button
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    className="navbar-toggler"
+    data-target="#navbarNavAltMarkup"
+    data-toggle="collapse"
+    type="button"
+  >
+    <span
+      className="navbar-toggler-icon"
+    />
+  </button>
+  <div
+    className="collapse navbar-collapse title"
+    id="navbarNavAltMarkup"
+  >
+    <div
+      className="navbar-nav"
+    >
+      <a
+        className="nav-item nav-link active"
+      >
+        <Link
+          replace={false}
+          to="/main"
+        >
+          Home 
+        </Link>
+        <span
+          className="sr-only"
+        >
+          (current)
+        </span>
+      </a>
+      <a
+        className="nav-item nav-link"
+      >
+        <Link
+          replace={false}
+          to="/viewcategories"
+        >
+           Categories 
+        </Link>
+      </a>
+      <a
+        className="nav-item nav-link"
+      >
+        Pricing
+      </a>
+    </div>
+    <withRouter(Logout) />
+  </div>
+</nav>
+`;

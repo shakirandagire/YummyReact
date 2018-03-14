@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Login from './login'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
+import Navigation from './Navigation';
 
 const Recipe = props => (
   <div className="col-sm-6 col-md-4" >
@@ -12,141 +12,131 @@ const Recipe = props => (
         <p className="card-text">{props.recipe_description}</p>
         <p className="card-text">{props.instructions}</p>
         <button type="button" className="btn btn-danger btn-sm" onClick={props.deleteRecipes}>
-          <span className="glyphicon glyphicon-trash"></span> Delete 
+          <span className="glyphicon glyphicon-trash" /> Delete
         </button>
 
-        <Link to = {`/editrecipes/${props.category_id}/recipes/${props.recipe_id}`} className="btn btn-success btn-sm" >
-          <span className="glyphicon glyphicon-edit"></span> Edit
+        <Link to={`/editrecipes/${props.category_id}/recipes/${props.recipe_id}`} className="btn btn-success btn-sm" >
+          <span className="glyphicon glyphicon-edit" /> Edit
         </Link>
 
       </div>
     </div>
   </div>
- 
+
 );
 
 
 class ViewRecipes extends Component {
-    constructor(props) {
-        super(props);
-        this.state ={
-            recipes: [],
-            q: ''
-        }
-    }
-
-    handleInputChange = (event)=>{
-      const {name, value} = event.target;
-      this.setState({[name]:value});
-    }
-    getRecipes = () => {
-    let headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
-    let category_id = this.props.match.params.id
-    axios
-      .get(`http://127.0.0.1:5000/api/v1/categories/${category_id}/recipes`, { headers })
-      .then(response => {
-        this.setState({recipes: response.data.recipes})
-      })
-      .catch(error => {
-        if (error.response) {
-          alert(error.response.data.message)
-        }
-        else if (error.request) {
-          alert("Request not made")
-
-        }
-      });
-    }
-
-    componentDidMount() {
-    this.getRecipes();
-    }
-
-
-    deleteRecipes = (recipe_id) => {
-    let headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
-    let category_id = this.props.match.params.id
-    axios
-      .delete(`http://127.0.0.1:5000/api/v1/categories/${category_id}/recipes/${recipe_id}`, {headers})
-      .then(response => {
-        notify.show(response.data.message, 'success', 4000)
-        this.getRecipes();
-      })
-      .catch(error => {
-        if (error.response) {
-          alert(error.response.data.message)
-        }
-        else if (error.request) {
-        alert("Request not made")
-
-        }
-      });
+  constructor(props) {
+    super(props);
+    this.state = {
+      recipes: [],
+      q: '',
+    };
   }
+  componentDidMount() {
+    this.getRecipes();
+  }
+    getRecipes = () => {
+      const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
+      const categoryId = this.props.match.params.id;
+      axios
+        .get(`http://127.0.0.1:5000/api/v1/categories/${categoryId}/recipes`, { headers })
+        .then((response) => {
+          this.setState({ recipes: response.data.recipes });
+        })
+        .catch((error) => {
+          if (error.response) {
+            notify.show("You donot have recipes yet, Please add a recipe", 'success', 4000);
+          } else if (error.request) {
+            notify.show("Request not made");
+          }
+        });
+    }
+
+    deleteRecipes = (recipeId) => {
+      const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
+      const categoryId = this.props.match.params.id;
+      axios
+        .delete(`http://127.0.0.1:5000/api/v1/categories/${categoryId}/recipes/${recipeId}`, { headers })
+        .then((response) => {
+          notify.show(response.data.message, 'success', 4000);
+          if (this.state.recipes.length === 1) {
+            this.setState({ recipes: [] });
+          } else {
+            this.getRecipes();
+          }
+        })
+
+        .catch((error) => {
+          if (error.response) {
+            notify.show(error.response.data.message, 'success');
+          } else if (error.request) {
+            notify.show("Request not made");
+          }
+        });
+    }
+
+    handleInputChange = (event) => {
+      const { name, value } = event.target;
+      this.setState({ [name]: value });
+    }
 
   searchRecipes = (event) => {
-    event.preventDefault()
-    const q = event.target.q.value
-    let headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
-    let cat_id = this.props.match.params.id
+    event.preventDefault();
+    const q = event.target.q.value;
+    const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
+    const catId = this.props.match.params.id;
     axios
-      .get(`http://127.0.0.1:5000/api/v1/categories/${cat_id}/recipes?q=${q}`, { headers })
-      .then(response => {
-        this.setState({ recipes: response.data.recipes })
+      .get(`http://127.0.0.1:5000/api/v1/categories/${catId}/recipes?q=${q}`, { headers })
+      .then((response) => {
+        this.setState({ recipes: response.data.recipes });
       })
-      .catch(error => {
+      .catch((error) => {
         if (error.response) {
-          alert(error.response.data.message)
-        }
-        else if (error.request) {
-          alert("Request not made")
-
+          notify.show(error.response.data.message, 'success');
+        } else if (error.request) {
+          alert("Request not made");
         }
       });
   }
-  
+
   render() {
     const recipes = this.state.recipes;
+    const catId = this.props.match.params.id;
     return (
       <div className="my_container backgimg">
-        <nav className="navbar navbar-inverse">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <a className="navbar-brand title" href="#">Yummy Recipe App</a>
-            </div>
-            <ul className="nav navbar-nav title">
-              <li><a>Home</a></li>
-              <li><a>Recipes</a></li>
-              <li><a>Categories</a></li>
-            </ul>
-            <ul className="nav navbar-nav navbar-right title">
-              <li><a><span className="glyphicon glyphicon-user"></span> Hallo</a></li>
-              <li><a>Logout</a></li>
-            </ul>
-          </div>
-        </nav>
-
+        <Navigation />
         <div className="mycontent">
 
-        <form onSubmit={this.searchRecipes}>
-        <div className="form-group">
-            <label>Search for a recipe:</label>
-            <input type="text" name="q" className="form-control" placeholder="search" onChange={this.handleInputChange} value={this.state.q} />
-          <button type="submit" className="btn btn-danger formsave">Search</button>
-          </div>
-        </form>
+          <form onSubmit={this.searchRecipes}>
+            <div className="form-group">
+            Search for a recipe:
+              <input type="text" name="q" className="form-control" placeholder="search" onChange={this.handleInputChange} value={this.state.q} />
+              <button type="submit" className="btn btn-danger formsave">Search</button>
+            </div>
+          </form>
 
           <h3> Recipes </h3>
-          <div class="row">
-          {
-            recipes.map((recipe)=>(
-              <Recipe {...recipe} key={recipe.recipe_id} 
-              deleteRecipes={() => this.deleteRecipes(recipe.recipe_id)}
-              recipe_id = {recipe.recipe_id}
-              category_id = {this.props.match.params.id}
+
+          <button type="button" className="btn btn-default btn-md">
+            <Link to={`/addrecipes/${catId}/recipes`}>
+              <span className="glyphicon glyphicon-trash" /> Add recipes
+            </Link>
+          </button>
+
+          <div className="row">
+            {
+            recipes.map(recipe => (
+              <Recipe
+                {...recipe}
+                key={recipe.recipe_id}
+                deleteRecipes={() => this.deleteRecipes(recipe.recipe_id)}
               />
             ))
           }
           </div>
+          <div className="row" />
         </div>
       </div>
 
@@ -154,5 +144,5 @@ class ViewRecipes extends Component {
     );
   }
 }
-      
+
 export default ViewRecipes;

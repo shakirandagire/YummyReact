@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ViewRecipes/> should render view recipes 1`] = `
+<div
+  className="my_container backgimg"
+>
+  <Navigation />
+  <div
+    className="mycontent"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group"
+      >
+        <label>
+          Search for a recipe:
+        </label>
+        <input
+          className="form-control"
+          name="q"
+          onChange={[Function]}
+          placeholder="search"
+          type="text"
+          value=""
+        />
+        <button
+          className="btn btn-danger formsave"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+    <h3>
+       Recipes 
+    </h3>
+    <button
+      className="btn btn-default btn-md"
+      type="button"
+    >
+      <Link
+        replace={false}
+        to="/addrecipes/undefined/recipes"
+      >
+        <span
+          className="glyphicon glyphicon-trash"
+        />
+         Add recipes 
+      </Link>
+    </button>
+    <div
+      class="row"
+    />
+    <div
+      class="row"
+    />
+  </div>
+</div>
+`;

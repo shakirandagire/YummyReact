@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddRecipe/> should render add recipes 1`] = `
+<div
+  className="my_container backgimg"
+>
+  <Navigation />
+  <div
+    className="mycontent"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group"
+      >
+        <label>
+          Recipe Name:
+        </label>
+        <input
+          className="form-control"
+          name="recipename"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label>
+          Description:
+        </label>
+        <input
+          className="form-control"
+          name="recipe_description"
+          onChange={[Function]}
+          required={true}
+          type="text-area"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label>
+          Instructions:
+        </label>
+        <textarea
+          className="form-control"
+          name="instructions"
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </div>
+      <button
+        className="btn btn-danger formsave"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;

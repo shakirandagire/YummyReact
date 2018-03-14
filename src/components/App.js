@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import '../css/style.css';
 import Notification from 'react-notify-toast';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import '../css/style.css';
 import Main from './main';
 import Register from './register';
 import Login from './login';
-import Home from './home';
 import AddCategory from './addcategories';
 import ViewCategory from './viewcategories';
 import EditCategory from './editcategories';
@@ -22,7 +21,6 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Main} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/home" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/addcategories" component={AddCategory} />
             <Route exact path="/viewcategories" component={ViewCategory} />
