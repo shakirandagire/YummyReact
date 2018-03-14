@@ -19,5 +19,6 @@ module.exports = {
         "quotes":0,
         "no-undef":0,
         "no-plusplus":0,
+        "jsx-a11y/href-no-hash":0,
     }
 };

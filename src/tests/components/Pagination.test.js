@@ -1,16 +1,16 @@
 import React from 'react';
-import Pagination  from '../../components/pagination';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
+import Pagination from '../../components/pagination';
 
-const component = shallow(< Pagination/>);
+const component = shallow(<Pagination />);
 
-describe('<Pagination/>',() => {
-  it('should render properly', () =>{
-    expect(component.length).toBe(1)
-  })
-  it('should render pagination',() =>{
+describe('<Pagination/>', () => {
+  it('should render properly', () => {
+    expect(component.length).toBe(1);
+  });
+  it('should render pagination', () => {
     expect(shallowToJson(component)).toMatchSnapshot();
-})
-})
+  });
+});
 

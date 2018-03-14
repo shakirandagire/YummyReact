@@ -137,7 +137,7 @@ class ViewCategory extends Component {
   }
 
   render() {
-    const { categories, perPage } = this.state;
+    const { categories } = this.state;
     return (
 
       <div className="my_container backgimg">
