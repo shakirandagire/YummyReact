@@ -65,7 +65,7 @@ class EditRecipe extends Component {
         <nav className="navbar navbar-inverse">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand title" href="#">Yummy Recipe App</a>
+              <a className="navbar-brand title">Yummy Recipe App</a>
             </div>
             <ul className="nav navbar-nav title">
               <li><a>Home</a></li>
