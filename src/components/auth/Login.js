@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { notify } from 'react-notify-toast';
 import axios from 'axios';
-import { BASE_URL } from '../../src/constants';
+import { BASE_URL } from '../../../src/constants';
 
 /**
  * Component for logging in users

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
 
-import { BASE_URL } from '../../src/constants';
+import { BASE_URL } from '../../../src/constants';
 /**
  * Component for registering the users of the application
  */

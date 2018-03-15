@@ -4,6 +4,7 @@ import { shallowToJson } from 'enzyme-to-json';
 import Register from '../../components/ResetPassword';
 
 const component = shallow(<Register />);
+const preventDefault = jest.fn();
 
 describe('<ResetPassword />', () => {
   it('should render properly', () => {
@@ -11,5 +12,8 @@ describe('<ResetPassword />', () => {
   });
   it('should render pagination', () => {
     expect(shallowToJson(component)).toMatchSnapshot();
+  });
+  it('should have reset password method', () => {
+    expect(component.instance().handleResetPassword({ preventDefault }));
   });
 });

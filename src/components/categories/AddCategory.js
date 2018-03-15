@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
-import { BASE_URL } from '../../src/constants';
+import { BASE_URL } from '../../../src/constants';
 
 /**
  * Component for  adding categories

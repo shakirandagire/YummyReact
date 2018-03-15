@@ -13,12 +13,17 @@ describe('<EditCategory/>', () => {
   };
 
   const component = shallow(<EditCategory match={{ params }} />);
+  const preventDefault = jest.fn();
   it('should render properly', () => {
     expect(component.length).toBe(1);
   });
 
   it('should render edit categories', () => {
     expect(shallowToJson(component)).toMatchSnapshot();
+  });
+
+  it('should have edit category method', () => {
+    expect(component.instance().handleEditCategory({ preventDefault }));
   });
 });
 

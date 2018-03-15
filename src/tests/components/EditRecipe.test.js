@@ -12,6 +12,7 @@ describe('<EditRecipe/>', () => {
       },
     },
   };
+  const preventDefault = jest.fn();
   const component = shallow(<EditRecipe match={{ params }} />);
   it('should render properly', () => {
     expect(component.length).toBe(1);
@@ -19,5 +20,8 @@ describe('<EditRecipe/>', () => {
 
   it('should render edit recipes', () => {
     expect(shallowToJson(component)).toMatchSnapshot();
+  });
+  it('should have edit recipe method', () => {
+    expect(component.instance().handleEditRecipe({ preventDefault }));
   });
 });

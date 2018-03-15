@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
-import Navigation from './Navigation';
-import Pagination from './Pagination';
-import { BASE_URL } from '../../src/constants';
+import Navigation from '../Navigation';
+import Pagination from '../Pagination';
+import { BASE_URL } from '../../../src/constants';
 
 /**
  * viewing,deleting,editing and searching for recipes

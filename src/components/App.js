@@ -3,16 +3,16 @@ import Notification from 'react-notify-toast';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import '../css/style.css';
 import Main from './Main';
-import Register from './Register';
-import Login from './Login';
-import AddCategory from './AddCategory';
-import ViewCategory from './ViewCategory';
-import EditCategory from './EditCategory';
-import AddRecipe from './AddRecipe';
-import ViewRecipe from './ViewRecipe';
-import EditRecipe from './EditRecipe';
+import Register from '../../src/components/auth/Register';
+import Login from '../../src/components/auth/Login';
+import AddCategory from '../../src/components/categories/AddCategory';
+import ViewCategory from '../../src/components/categories/ViewCategory';
+import EditCategory from '../../src/components/categories/EditCategory';
+import AddRecipe from '../../src/components/recipes/AddRecipe';
+import ViewRecipe from '../../src/components/recipes/ViewRecipe';
+import EditRecipe from '../../src/components/recipes/EditRecipe';
 import PrivateRoute from './PrivateRoute';
-import ResetPassword from './ResetPassword';
+import ResetPassword from '../../src/components/auth/ResetPassword';
 
 class App extends Component {
   render() {
