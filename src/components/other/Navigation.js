@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logout from './Logout';
-
+import Logout from '../auth/Logout';
 
 /**
  * Component for rendering the navigation bar

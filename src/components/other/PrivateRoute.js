@@ -1,6 +1,5 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router';
-
 /**
  * Component for handling private routes
  */

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
 import { BASE_URL } from '../../../src/constants';
+import Navigation from '../other/Navigation';
 
 /**
  * Component for  adding categories
@@ -40,23 +41,7 @@ class AddCategory extends Component {
       render() {
         return (
           <div className="my_container backgimg">
-            <nav className="navbar navbar-inverse">
-              <div className="container-fluid">
-                <div className="navbar-header">
-                  <a className="navbar-brand title">Yummy Recipe App</a>
-                </div>
-                <ul className="nav navbar-nav title">
-                  <li><a>Home</a></li>
-                  <li><a>Recipes</a></li>
-                  <li><a>Categories</a></li>
-                </ul>
-                <ul className="nav navbar-nav navbar-right title">
-                  <li><a><span className="glyphicon glyphicon-user" /> Hallo</a></li>
-                  <li><a>Logout</a></li>
-                </ul>
-              </div>
-            </nav>
-
+            <Navigation />
             <div className="mycontent">
 
               <form onSubmit={this.handleAddCategory}>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Notification from 'react-notify-toast';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import '../css/style.css';
-import Main from './Main';
+import Main from '../components/other/Main';
 import Register from '../../src/components/auth/Register';
 import Login from '../../src/components/auth/Login';
 import AddCategory from '../../src/components/categories/AddCategory';
@@ -11,7 +11,7 @@ import EditCategory from '../../src/components/categories/EditCategory';
 import AddRecipe from '../../src/components/recipes/AddRecipe';
 import ViewRecipe from '../../src/components/recipes/ViewRecipe';
 import EditRecipe from '../../src/components/recipes/EditRecipe';
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from '../components/other/PrivateRoute';
 import ResetPassword from '../../src/components/auth/ResetPassword';
 
 class App extends Component {

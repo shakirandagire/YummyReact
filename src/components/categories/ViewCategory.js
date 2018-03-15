@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
-import Pagination from '../Pagination';
-import Navigation from '../Navigation';
+import Pagination from '../other/Pagination';
+import Navigation from '../other/Navigation';
 import { BASE_URL } from '../../../src/constants';
 
 /**
