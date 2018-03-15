@@ -6,4 +6,4 @@ script:
   - jest --coverage
 
 after_success:
-  - "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  - coveralls < coverage/lcov.info
