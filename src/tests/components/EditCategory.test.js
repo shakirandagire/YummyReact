@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import EditCategory from '../../components/EditCategory';
+import EditCategory from '../../components/categories/EditCategory';
 
 describe('<EditCategory/>', () => {
   const params = {

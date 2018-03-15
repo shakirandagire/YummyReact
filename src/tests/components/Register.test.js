@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import Register from '../../components/Register';
+import Register from '../../components/auth/Register';
 
 const component = shallow(<Register />);
 const preventDefault = jest.fn();

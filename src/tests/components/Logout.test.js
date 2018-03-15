@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import Logout from '../../components/Logout';
+import Logout from '../../components/auth/Logout';
 
 describe('<Logout/>', () => {
   const component = shallow(<Logout />);

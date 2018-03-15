@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import Login from '../../components/Login';
+import Login from '../../components/auth/Login';
 
 const component = shallow(<Login />);
 const preventDefault = jest.fn();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import AddCategory from '../../components/AddCategory';
+import AddCategory from '../../components/categories/AddCategory';
 
 const component = shallow(<AddCategory />);
 const preventDefault = jest.fn();
