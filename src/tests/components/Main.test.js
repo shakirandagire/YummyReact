@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import Main from '../../components/Main';
+import Main from '../../components/other/Main';
 
 const component = shallow(<Main />);
 

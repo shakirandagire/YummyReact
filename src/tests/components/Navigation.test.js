@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import Navigation from '../../components/Navigation';
+import Navigation from '../../components/other/Navigation';
 
 const component = shallow(<Navigation />);
 describe('<Navigation/>', () => {
