@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/shakirandagire/YummyReact.svg?branch=register-user)](https://travis-ci.org/shakirandagire/YummyReact)
+[![Coverage Status](https://coveralls.io/repos/github/shakirandagire/YummyReact/badge.svg)](https://coveralls.io/github/shakirandagire/YummyReact)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d9f35c8cd0de403f884411a31f9ffb39)](https://www.codacy.com/app/shakirandagire/YummyReact?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=shakirandagire/YummyReact&amp;utm_campaign=Badge_Grade)
 
 # Yummy Recipes React App
 
