@@ -25,32 +25,37 @@ exports[`<App/> should render app 1`] = `
       <Route
         component={[Function]}
         exact={true}
-        path="/addcategories"
+        path="/reset-password"
       />
-      <Route
+      <PrivateRoute
         component={[Function]}
         exact={true}
-        path="/viewcategories"
+        path="/add-categories"
       />
-      <Route
+      <PrivateRoute
         component={[Function]}
         exact={true}
-        path="/editcategories/:id"
+        path="/view-categories"
       />
-      <Route
+      <PrivateRoute
         component={[Function]}
         exact={true}
-        path="/addrecipes/:id/recipes"
+        path="/edit-categories/:id"
       />
-      <Route
+      <PrivateRoute
         component={[Function]}
         exact={true}
-        path="/viewrecipes/:id/recipes"
+        path="/add-recipes/:id/recipes"
       />
-      <Route
+      <PrivateRoute
         component={[Function]}
         exact={true}
-        path="/editrecipes/:category_id/recipes/:id"
+        path="/view-recipes/:id/recipes"
+      />
+      <PrivateRoute
+        component={[Function]}
+        exact={true}
+        path="/edit-recipes/:category_id/recipes/:id"
       />
     </Switch>
   </div>

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Component for rendering the main page
+ */
 class Main extends Component {
   render() {
     return (
@@ -8,7 +11,7 @@ class Main extends Component {
         <nav className="navbar navbar-inverse">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand title"><Link to="/main">Yummy Recipe App</Link></a>
+              <a className="navbar-brand title"><Link to="/">Yummy Recipe App</Link></a>
 
             </div>
           </div>

@@ -3,51 +3,34 @@ import axios from 'axios';
 import { notify } from 'react-notify-toast';
 import { BASE_URL } from '../../src/constants';
 
-
-class EditCategory extends Component {
+/**
+ * Component for  adding categories
+ */
+class AddCategory extends Component {
     state = {
       categoryname: '',
       category_description: '',
-    }
-
-    componentWillMount() {
-      const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
-      const categoryId = this.props.match.params.id;
-      axios
-        .get(`${BASE_URL}/api/v1/categories/${categoryId}`, { headers })
-        .then((response) => {
-          const category = response.data;
-          this.setState({
-            categoryname: category.categoryname,
-            category_description: category.category_description });
-        })
-        .catch((error) => {
-          if (error.response) {
-            notify.show(error.response.data.message, 'success');
-          } else if (error.request) {
-            notify.show("Request not made");
-          }
-        });
     }
 
       handleInputChange = (event) => {
         const { name, value } = event.target;
         this.setState({ [name]: value });
       }
-
-      handleEditCategory = (event) => {
+      // Method that handles the adding of categories
+      handleAddCategory = (event) => {
         const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
         event.preventDefault();
-        const categoryId = this.props.match.params.id;
         axios
-          .put(`http://127.0.0.1:5000/api/v1/categories/${categoryId}`, this.state, { headers })
-          .then(() => {
-            notify.show("Category edited successfully", 'success', 4000);
-            this.props.history.push('/viewcategories');
+          .post(`${BASE_URL}/api/v1/categories/`, this.state, { headers })
+          .then((response) => {
+            notify.show(response.data.message, 'success', 1000);
+            this.props
+              .history
+              .push('/view-categories');
           })
           .catch((error) => {
             if (error.response) {
-              notify.show(error.response.data.message, 'success');
+              notify.show(error.response.data.message);
             } else if (error.request) {
               notify.show("Request not made");
             }
@@ -76,7 +59,7 @@ class EditCategory extends Component {
 
             <div className="mycontent">
 
-              <form onSubmit={this.handleEditCategory}>
+              <form onSubmit={this.handleAddCategory}>
 
                 <div className="form-group">
                   Category Name:
@@ -97,4 +80,4 @@ class EditCategory extends Component {
         );
       }
 }
-export default EditCategory;
+export default AddCategory;

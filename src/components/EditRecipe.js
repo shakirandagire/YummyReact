@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
 import { BASE_URL } from '../../src/constants';
+import Navigation from './Navigation';
+
+/**
+ * Component for editing recipes
+ */
 
 class EditRecipe extends Component {
   constructor(props) {
@@ -12,6 +17,7 @@ class EditRecipe extends Component {
       instructions: '',
     };
   }
+  // Function that populates the edit recipes form
   componentWillMount() {
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     const catId = this.props.match.params.category_id;
@@ -38,18 +44,18 @@ class EditRecipe extends Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
+  // Function that handles the editting of recipes
 
   handleEditRecipe = (event) => {
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     event.preventDefault();
     const catId = this.props.match.params.category_id;
     const recipeId = this.props.match.params.id;
-
     axios
-      .put(`http://127.0.0.1:5000/api/v1/categories/${catId}/recipes/${recipeId}`, this.state, { headers })
+      .put(`${BASE_URL}/api/v1/categories/${catId}/recipes/${recipeId}`, this.state, { headers })
       .then(() => {
         notify.show("Recipe edited successfully", 'success', 4000);
-        this.props.history.push(`/viewrecipes/${catId}/recipes`);
+        this.props.history.push(`/view-recipes/${catId}/recipes`);
       })
       .catch((error) => {
         if (error.response) {
@@ -63,23 +69,7 @@ class EditRecipe extends Component {
   render() {
     return (
       <div className="my_container backgimg">
-        <nav className="navbar navbar-inverse">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <a className="navbar-brand title">Yummy Recipe App</a>
-            </div>
-            <ul className="nav navbar-nav title">
-              <li><a>Home</a></li>
-              <li><a>Recipes</a></li>
-              <li><a>Categories</a></li>
-            </ul>
-            <ul className="nav navbar-nav navbar-right title">
-              <li><a><span className="glyphicon glyphicon-user" /> Hallo</a></li>
-              <li><a>Logout</a></li>
-            </ul>
-          </div>
-        </nav>
-
+        <Navigation />
         <div className="mycontent">
 
           <form onSubmit={this.handleEditRecipe}>

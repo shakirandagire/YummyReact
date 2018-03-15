@@ -5,11 +5,11 @@ exports[`<Navigation/> should render navigation 1`] = `
   className="navbar navbar-expand-lg navbar-light bg-light"
 >
   <a
-    className="navbar-brand"
+    className="navbar-brand title"
   >
     <Link
       replace={false}
-      to="/main"
+      to="/"
     >
       Yummy Recipes
     </Link>
@@ -39,7 +39,7 @@ exports[`<Navigation/> should render navigation 1`] = `
       >
         <Link
           replace={false}
-          to="/main"
+          to="/"
         >
           Home 
         </Link>
@@ -54,15 +54,10 @@ exports[`<Navigation/> should render navigation 1`] = `
       >
         <Link
           replace={false}
-          to="/viewcategories"
+          to="/view-categories"
         >
            Categories 
         </Link>
-      </a>
-      <a
-        className="nav-item nav-link"
-      >
-        Pricing
       </a>
     </div>
     <withRouter(Logout) />

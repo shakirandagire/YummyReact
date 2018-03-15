@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import Pagination from '../../components/pagination';
+import Pagination from '../../components/Pagination';
 
 const component = shallow(<Pagination />);
 

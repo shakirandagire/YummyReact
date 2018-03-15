@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import AddRecipe from '../../components/addrecipes';
+import AddRecipe from '../../components/AddRecipe';
 
 
 const component = shallow(<AddRecipe />);

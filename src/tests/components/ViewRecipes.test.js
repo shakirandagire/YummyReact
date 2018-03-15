@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import ViewRecipes from '../../components/viewrecipes';
+import ViewRecipes from '../../components/ViewRecipe';
 
 describe('<ViewRecipes/>', () => {
   const params = {

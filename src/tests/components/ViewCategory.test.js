@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import ViewCategory from '../../components/viewcategories';
+import ViewCategory from '../../components/ViewCategory';
 
 const component = shallow(<ViewCategory />);
 

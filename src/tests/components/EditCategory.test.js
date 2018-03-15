@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import EditCategory from '../../components/editcategories';
+import EditCategory from '../../components/EditCategory';
 
 describe('<EditCategory/>', () => {
   const params = {
@@ -11,6 +11,7 @@ describe('<EditCategory/>', () => {
       },
     },
   };
+
   const component = shallow(<EditCategory match={{ params }} />);
   it('should render properly', () => {
     expect(component.length).toBe(1);

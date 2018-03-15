@@ -2,11 +2,35 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
 import { BASE_URL } from '../../src/constants';
+import Navigation from './Navigation';
 
-class AddCategory extends Component {
+/**
+ * Component for editing categories
+ */
+class EditCategory extends Component {
     state = {
       categoryname: '',
       category_description: '',
+    }
+    // Component for populating the fields of the edit form
+    componentWillMount() {
+      const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
+      const categoryId = this.props.match.params.id;
+      axios
+        .get(`${BASE_URL}/api/v1/categories/${categoryId}`, { headers })
+        .then((response) => {
+          const category = response.data;
+          this.setState({
+            categoryname: category.categoryname,
+            category_description: category.category_description });
+        })
+        .catch((error) => {
+          if (error.response) {
+            notify.show(error.response.data.message, 'success');
+          } else if (error.request) {
+            notify.show("Request not made");
+          }
+        });
     }
 
       handleInputChange = (event) => {
@@ -14,20 +38,21 @@ class AddCategory extends Component {
         this.setState({ [name]: value });
       }
 
-      handleAddCategory = (event) => {
+      // Function to handle the editing of the categories
+
+      handleEditCategory = (event) => {
         const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
         event.preventDefault();
+        const categoryId = this.props.match.params.id;
         axios
-          .post(`${BASE_URL}/api/v1/categories/`, this.state, { headers })
-          .then((response) => {
-            notify.show(response.data.message, 'success', 1000);
-            this.props
-              .history
-              .push('/viewcategories');
+          .put(`http://127.0.0.1:5000/api/v1/categories/${categoryId}`, this.state, { headers })
+          .then(() => {
+            notify.show("Category edited successfully", 'success', 4000);
+            this.props.history.push('/view-categories');
           })
           .catch((error) => {
             if (error.response) {
-              notify.show(error.response.data.message);
+              notify.show(error.response.data.message, 'success');
             } else if (error.request) {
               notify.show("Request not made");
             }
@@ -37,26 +62,11 @@ class AddCategory extends Component {
       render() {
         return (
           <div className="my_container backgimg">
-            <nav className="navbar navbar-inverse">
-              <div className="container-fluid">
-                <div className="navbar-header">
-                  <a className="navbar-brand title">Yummy Recipe App</a>
-                </div>
-                <ul className="nav navbar-nav title">
-                  <li><a>Home</a></li>
-                  <li><a>Recipes</a></li>
-                  <li><a>Categories</a></li>
-                </ul>
-                <ul className="nav navbar-nav navbar-right title">
-                  <li><a><span className="glyphicon glyphicon-user" /> Hallo</a></li>
-                  <li><a>Logout</a></li>
-                </ul>
-              </div>
-            </nav>
+            <Navigation />
 
             <div className="mycontent">
 
-              <form onSubmit={this.handleAddCategory}>
+              <form onSubmit={this.handleEditCategory}>
 
                 <div className="form-group">
                   Category Name:
@@ -77,4 +87,4 @@ class AddCategory extends Component {
         );
       }
 }
-export default AddCategory;
+export default EditCategory;

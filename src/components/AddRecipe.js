@@ -4,6 +4,10 @@ import { notify } from 'react-notify-toast';
 import Navigation from './Navigation';
 import { BASE_URL } from '../../src/constants';
 
+/**
+ * Component for adding recipes
+ */
+
 class AddRecipe extends Component {
     state = {
       recipename: '',
@@ -15,6 +19,7 @@ class AddRecipe extends Component {
         const { name, value } = event.target;
         this.setState({ [name]: value });
       }
+      // Method that handles adding of recipes
 
       handleAddRecipe = (event) => {
         const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
@@ -29,13 +34,13 @@ class AddRecipe extends Component {
           .post(`${BASE_URL}/api/v1/categories/${categoryId}/recipes`, payload, { headers })
           .then((response) => {
             notify.show(response.data.message, 'success', 4000);
-            this.props.history.push(`/viewrecipes/${categoryId}/recipes`);
+            this.props.history.push(`/view-recipes/${categoryId}/recipes`);
           })
           .catch((error) => {
             if (error.response) {
-              alert(error.response.data.message);
+              notify.show(error.response.data.message);
             } else if (error.request) {
-              alert("Request not made");
+              notify.show("Request not made");
             }
           });
       }

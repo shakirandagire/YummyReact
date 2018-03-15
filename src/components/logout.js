@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { notify } from 'react-notify-toast';
 import { withRouter } from 'react-router';
 
+/**
+ * Component for logging out users
+ */
 class Logout extends Component {
+  // Function that logs out users
   handleLogout = () => {
     localStorage.clear();
     this.props.history.push('/login');
@@ -10,7 +14,7 @@ class Logout extends Component {
   }
   render() {
     return (
-      <button type="submit" className="btn btn-danger" onClick={this.handleLogout}>Logout</button>
+      <button id="button" type="submit" className="btn btn-danger" onClick={this.handleLogout}>Logout</button>
     );
   }
 }

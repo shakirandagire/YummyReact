@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Component for pagination
+ */
+
 const Pagination = (props) => {
   const { perPage, total, handlePage } = props;
 

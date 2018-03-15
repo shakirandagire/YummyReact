@@ -18,7 +18,7 @@ exports[`<Main/> should render main 1`] = `
         >
           <Link
             replace={false}
-            to="/main"
+            to="/"
           >
             Yummy Recipe App
           </Link>
@@ -30,7 +30,10 @@ exports[`<Main/> should render main 1`] = `
     className="mycontent"
   >
     <h3>
-       Do you love cooking and eating amazing food and cannot keep track of your favorite chef's recipe
+       Do you love cooking and eating amazing food 
+    </h3>
+    <h3>
+       And cannot keep track of your favorite recipe
     </h3>
     <h3>
        We have got you 

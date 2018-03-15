@@ -3,44 +3,25 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
 import Navigation from './Navigation';
-import Pagination from './pagination';
+import Pagination from './Pagination';
 import { BASE_URL } from '../../src/constants';
 
-const Recipe = props => (
-  <div className="col-sm-6 col-md-4" >
-    <div className="card">
-      <div className="card-block">
-        <h3 className="card-title">{props.recipename}</h3>
-        <p className="card-text">{props.recipe_description}</p>
-        <p className="card-text">{props.instructions}</p>
-        <button type="button" className="btn btn-danger btn-sm" onClick={props.deleteRecipes}>
-          <span className="glyphicon glyphicon-trash" /> Delete
-        </button>
+/**
+ * viewing,deleting,editing and searching for recipes
+ */
 
-        <Link to={`/editrecipes/${props.category_id}/recipes/${props.recipe_id}`} className="btn btn-success btn-sm" >
-          <span className="glyphicon glyphicon-edit" /> Edit
-        </Link>
-
-      </div>
-    </div>
-  </div>
-
-);
-
-
-class ViewRecipes extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+class ViewRecipe extends Component {
+    state = {
       recipes: [],
       q: '',
       perPage: 6,
       total: '',
     };
-  }
-  componentDidMount() {
-    this.getRecipes();
-  }
+
+    componentDidMount() {
+      this.getRecipes();
+    }
+    // Funtion for viewing recipes
     getRecipes = () => {
       const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
       const categoryId = this.props.match.params.id;
@@ -57,7 +38,7 @@ class ViewRecipes extends Component {
           }
         });
     }
-
+    // Function for deleting recipes
     deleteRecipes = (recipeId) => {
       const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
       const categoryId = this.props.match.params.id;
@@ -86,6 +67,7 @@ class ViewRecipes extends Component {
       this.setState({ [name]: value });
     }
 
+    // Function for searchingfor recipes
   searchRecipes = (event) => {
     event.preventDefault();
     const q = event.target.q.value;
@@ -109,7 +91,7 @@ class ViewRecipes extends Component {
         }
       });
   }
-
+  // Function for handling page
   handlePage = (event, perPage, page) => {
     event.preventDefault();
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
@@ -147,12 +129,14 @@ class ViewRecipes extends Component {
           <h3> Recipes </h3>
 
           <button type="button" className="btn btn-default btn-md">
-            <Link to={`/addrecipes/${catId}/recipes`}>
+            <Link to={`/add-recipes/${catId}/recipes`}>
               <span className="glyphicon glyphicon-trash" /> Add recipes
             </Link>
           </button>
 
           <div className="row">
+
+            {/* Functionality to map Recipes to a specific card */}
             {
             recipes.map(recipe => (
               <Recipe
@@ -176,4 +160,26 @@ class ViewRecipes extends Component {
   }
 }
 
-export default ViewRecipes;
+export default ViewRecipe;
+
+// Component for the cards that a populated with recipes
+const Recipe = props => (
+  <div className="col-sm-6 col-md-4" >
+    <div className="card">
+      <div className="card-block">
+        <h3 className="card-title">{props.recipename}</h3>
+        <p className="card-text">{props.recipe_description}</p>
+        <p className="card-text">{props.instructions}</p>
+        <button type="button" className="btn btn-danger btn-sm" onClick={props.deleteRecipes}>
+          <span className="glyphicon glyphicon-trash" /> Delete
+        </button>
+
+        <Link to={`/edit-recipes/${props.category_identity}/recipes/${props.recipe_id}`} className="btn btn-success btn-sm" >
+          <span className="glyphicon glyphicon-edit" /> Edit
+        </Link>
+
+      </div>
+    </div>
+  </div>
+
+);

@@ -14,9 +14,7 @@ exports[`<ViewRecipes/> should render view recipes 1`] = `
       <div
         className="form-group"
       >
-        <label>
-          Search for a recipe:
-        </label>
+        Search for a recipe:
         <input
           className="form-control"
           name="q"
@@ -42,19 +40,21 @@ exports[`<ViewRecipes/> should render view recipes 1`] = `
     >
       <Link
         replace={false}
-        to="/addrecipes/undefined/recipes"
+        to="/add-recipes/undefined/recipes"
       >
         <span
           className="glyphicon glyphicon-trash"
         />
-         Add recipes 
+         Add recipes
       </Link>
     </button>
     <div
-      class="row"
+      className="row"
     />
-    <div
-      class="row"
+    <Pagination
+      handlePage={[Function]}
+      perPage={6}
+      total=""
     />
   </div>
 </div>

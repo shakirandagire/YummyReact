@@ -7,10 +7,10 @@ import { BASE_URL } from '../../src/constants';
 /**
  * Component for registering the users of the application
  */
-class Register extends Component {
+class ResetPassword extends Component {
     state = {
       email: '',
-      password: '',
+      new_password: '',
       security_question: '',
       security_answer: '',
     }
@@ -20,18 +20,18 @@ class Register extends Component {
       this.setState({ [name]: value });
     }
     // Method for handling the registartion of users
-    handleRegister = (event) => {
-      const { email, password, security_question, security_answer } = this.state;
+    handleResetPassword = (event) => {
+      const { email, new_password, security_question, security_answer } = this.state;
       const data = {
         email,
-        password,
+        new_password,
         security_question,
         security_answer,
 
       };
       event.preventDefault();
       axios
-        .post(`${BASE_URL}/api/v1/auth/register`, data)
+        .post(`${BASE_URL}/api/v1/auth/change_password`, data)
         .then((response) => {
           notify.show(response.data.message, 'success', 4000);
           this.props
@@ -48,7 +48,7 @@ class Register extends Component {
     }
 
     render() {
-      const { email, password, security_question, security_answer } = this.state;
+      const { email, new_password, security_question, security_answer } = this.state;
 
       return (
         <div className="my_container backgimg" >
@@ -62,16 +62,16 @@ class Register extends Component {
 
           <div className="mycontent register">
 
-            <p> Donot have an account with us:</p>
-            <form onSubmit={this.handleRegister}>
+            <p> Forgot your password:</p>
+            <form onSubmit={this.handleResetPassword}>
 
               <div className="form-group">
                 Email:
                 <input type="email" name="email" className="form-control" required onChange={this.handleInputChange} value={email} />
               </div>
               <div className="form-group">
-                Password:
-                <input type="password" name="password" className="form-control" required onChange={this.handleInputChange} value={password} />
+                New Password:
+                <input type="password" name="new_password" className="form-control" required onChange={this.handleInputChange} value={new_password} />
               </div>
               <div className="form-group">
                 Security Question:
@@ -82,9 +82,8 @@ class Register extends Component {
                 <input type="text" name="security_answer" className="form-control" required onChange={this.handleInputChange} value={security_answer} />
               </div>
 
-              <button type="submit" className="btn btn-danger formsave" >Sign Up</button>
+              <button type="submit" className="btn btn-danger formsave" >Reset password</button>
 
-              <p> Already have an account with us:</p><Link to="/login"> Login</Link>
             </form>
 
           </div>
@@ -92,4 +91,4 @@ class Register extends Component {
       );
     }
 }
-export default Register;
+export default ResetPassword;

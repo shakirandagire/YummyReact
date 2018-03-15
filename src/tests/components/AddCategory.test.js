@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import AddCategory from '../../components/addcategories';
+import AddCategory from '../../components/AddCategory';
 
 const component = shallow(<AddCategory />);
 describe('<AddCategory/>', () => {

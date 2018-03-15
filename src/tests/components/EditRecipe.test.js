@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import EditRecipe from '../../components/editrecipes';
+import EditRecipe from '../../components/EditRecipe';
 
 
 describe('<EditRecipe/>', () => {

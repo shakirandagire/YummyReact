@@ -20,5 +20,6 @@ module.exports = {
         "no-undef":0,
         "no-plusplus":0,
         "jsx-a11y/href-no-hash":0,
+        "import/prefer-default-export":0,
     }
 };

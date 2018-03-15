@@ -4,7 +4,9 @@ import { notify } from 'react-notify-toast';
 import axios from 'axios';
 import { BASE_URL } from '../../src/constants';
 
-
+/**
+ * Component for logging in users
+ */
 class Login extends Component {
   state = {
     email: '',
@@ -16,6 +18,7 @@ class Login extends Component {
     this.setState({ [name]: value });
   }
 
+  // Function to handle the logging in of users
   handleLogin = (event) => {
     const { email, password } = this.state;
     const data = {
@@ -26,11 +29,10 @@ class Login extends Component {
     axios
       .post(`${BASE_URL}/api/v1/auth/login`, data)
       .then((response) => {
-      // notify.show(response.data.message, 'success');
         localStorage.setItem('accessToken', response.data.access_token);
         this.props
           .history
-          .push('/viewcategories');
+          .push('/view-categories');
       })
       .catch((error) => {
         if (error.response) {
@@ -47,11 +49,8 @@ class Login extends Component {
         <nav className="navbar navbar-inverse">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand title">Yummy Recipe App</a>
+              <Link className="navbar-brand title" to="/">Yummy Recipe App</Link>
             </div>
-            <ul className="nav navbar-nav title">
-              <li><a>Home</a></li>
-            </ul>
           </div>
         </nav>
 
@@ -67,13 +66,14 @@ class Login extends Component {
               Password:
               <input type="password" name="password" className="form-control" required onChange={this.handleInputChange} value={password} />
             </div>
+            <Link to="/reset-password"> Forgot password </Link>
+            <div>
+              <button type="submit" className="btn btn-danger formsave">Login</button>
+            </div>
 
-            <button type="submit" className="btn btn-danger formsave">Login</button>
+            <p>Donot have an account with us:</p><Link to="/register"> Sign Up     </Link>
 
-            <p>Donot have an account with us:</p><Link to="/register"> Sign Up </Link>
           </form>
-
-
         </div>
       </div>
     );

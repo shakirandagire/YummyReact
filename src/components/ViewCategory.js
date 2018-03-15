@@ -2,35 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
-import Pagination from './pagination';
+import Pagination from './Pagination';
 import Navigation from './Navigation';
 import { BASE_URL } from '../../src/constants';
 
-const Category = props => (
-  <div className="col-sm-6 col-md-4" >
-    <div className="card">
-      <div className="card-block">
-        <h3 className="card-title">{props.categoryname}</h3>
-        <p className="card-text">{props.category_description}</p>
-        <button type="button" className="btn btn-danger btn-sm" onClick={props.deleteCategories}>
-          <span className="glyphicon glyphicon-trash" />Delete
-        </button>
-        <Link to={`editcategories/${props.category_id}`} className="btn btn-success btn-sm" >
-          <span className="glyphicon glyphicon-edit" /> Edit
-        </Link>
-
-        <Link to={`addrecipes/${props.category_id}/recipes`} className="btn btn-success btn-sm" >
-          <span className="glyphicon glyphicon-edit" /> Add Recipes
-        </Link>
-
-        <Link to={`viewrecipes/${props.category_id}/recipes`} className="btn btn-success btn-sm" >
-          <span className="glyphicon glyphicon-edit" /> View Recipes
-        </Link>
-      </div>
-    </div>
-  </div>
-);
-
+/**
+ * Component for viewing,deleting,editing and searching for categories
+ */
 class ViewCategory extends Component {
     state = {
       categories: [],
@@ -42,6 +20,8 @@ class ViewCategory extends Component {
     componentDidMount() {
       this.getCategories();
     }
+
+  // Function for getting categories
   getCategories = () => {
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     axios
@@ -58,6 +38,7 @@ class ViewCategory extends Component {
       });
   }
 
+  // Function for handling pagination
   handlePage = (event, perPage, page) => {
     event.preventDefault();
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
@@ -74,6 +55,7 @@ class ViewCategory extends Component {
         }
       });
   }
+  // Function for deleting categories
   deleteCategories = (categoryId) => {
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     axios
@@ -94,7 +76,7 @@ class ViewCategory extends Component {
         }
       });
   }
-
+  // Function for editing categories
   editCategories = (categoryId) => {
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     axios
@@ -116,6 +98,8 @@ class ViewCategory extends Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
+
+  // Function for searching for  categories
   searchCategories = (event) => {
     event.preventDefault();
     const q = event.target.q.value;
@@ -154,7 +138,7 @@ class ViewCategory extends Component {
 
           <h3> Categories </h3>
           <button type="button" className="btn btn-default btn-md">
-            <Link to="/addcategories">
+            <Link to="/add-categories">
               <span className="glyphicon glyphicon-trash" /> Add category
             </Link>
 
@@ -188,3 +172,29 @@ class ViewCategory extends Component {
 }
 
 export default ViewCategory;
+
+// Component for the cards that a populated with categories
+const Category = props => (
+  <div className="col-sm-6 col-md-4" >
+    <div className="card">
+      <div className="card-block">
+        <h3 className="card-title">{props.categoryname}</h3>
+        <p className="card-text">{props.category_description}</p>
+        <button type="button" className="btn btn-danger btn-sm" onClick={props.deleteCategories}>
+          <span className="glyphicon glyphicon-trash" />Delete
+        </button>
+        <Link to={`edit-categories/${props.category_id}`} className="btn btn-success btn-sm" >
+          <span className="glyphicon glyphicon-edit" /> Edit
+        </Link>
+
+        <Link to={`add-recipes/${props.category_id}/recipes`} className="btn btn-success btn-sm" >
+          <span className="glyphicon glyphicon-edit" /> Add Recipes
+        </Link>
+
+        <Link to={`view-recipes/${props.category_id}/recipes`} className="btn btn-success btn-sm" >
+          <span className="glyphicon glyphicon-edit" /> View Recipes
+        </Link>
+      </div>
+    </div>
+  </div>
+);

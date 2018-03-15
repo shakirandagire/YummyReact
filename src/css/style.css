@@ -7,10 +7,13 @@
     width: 100%;
     height: 100%;
     opacity: 0.6;
+    
 }
 .backgimg {
-    padding: 0 0 100% 0;
-    background: url("img/Food.jpg") no-repeat;
+    background: url("img/Food.jpg");
+    background-repeat: no-repeat;
+    padding-bottom: 30em!important
+    
 }
 
 .mycontent {
@@ -48,4 +51,7 @@
 }
 .paginate{
     display:inline-flex
+}
+#button{
+    margin-left: 60em;
 }
