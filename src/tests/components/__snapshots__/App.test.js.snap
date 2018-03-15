@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App/> should render app 1`] = `
+<BrowserRouter>
+  <div>
+    <_class
+      options={Object {}}
+    />
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/register"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/login"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/reset-password"
+      />
+      <PrivateRoute
+        component={[Function]}
+        exact={true}
+        path="/add-categories"
+      />
+      <PrivateRoute
+        component={[Function]}
+        exact={true}
+        path="/view-categories"
+      />
+      <PrivateRoute
+        component={[Function]}
+        exact={true}
+        path="/edit-categories/:id"
+      />
+      <PrivateRoute
+        component={[Function]}
+        exact={true}
+        path="/add-recipes/:id/recipes"
+      />
+      <PrivateRoute
+        component={[Function]}
+        exact={true}
+        path="/view-recipes/:id/recipes"
+      />
+      <PrivateRoute
+        component={[Function]}
+        exact={true}
+        path="/edit-recipes/:category_id/recipes/:id"
+      />
+    </Switch>
+  </div>
+</BrowserRouter>
+`;

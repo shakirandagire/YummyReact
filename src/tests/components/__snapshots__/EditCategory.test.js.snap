@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditCategory/> should render edit categories 1`] = `
+<div
+  className="my_container backgimg"
+>
+  <Navigation />
+  <div
+    className="mycontent"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group"
+      >
+        Category Name:
+        <input
+          className="form-control"
+          name="categoryname"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        Description:
+        <input
+          className="form-control"
+          name="category_description"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+      <button
+        className="btn btn-danger formsave"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;

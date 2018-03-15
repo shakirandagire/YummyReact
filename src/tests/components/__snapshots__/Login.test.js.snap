@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login/> should render login 1`] = `
+<div
+  className="my_container backgimg"
+>
+  <nav
+    className="navbar navbar-inverse"
+  >
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="navbar-header"
+      >
+        <Link
+          className="navbar-brand title"
+          replace={false}
+          to="/"
+        >
+          Yummy Recipe App
+        </Link>
+      </div>
+    </div>
+  </nav>
+  <div
+    className="mycontent register"
+  >
+    <p>
+       Have an account with us:
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group"
+      >
+        Email:
+        <input
+          className="form-control"
+          name="email"
+          onChange={[Function]}
+          required={true}
+          type="email"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        Password:
+        <input
+          className="form-control"
+          name="password"
+          onChange={[Function]}
+          required={true}
+          type="password"
+          value=""
+        />
+      </div>
+      <Link
+        replace={false}
+        to="/reset-password"
+      >
+         Forgot password 
+      </Link>
+      <div>
+        <button
+          className="btn btn-danger formsave"
+          type="submit"
+        >
+          Login
+        </button>
+      </div>
+      <p>
+        Donot have an account with us:
+      </p>
+      <Link
+        replace={false}
+        to="/register"
+      >
+         Sign Up     
+      </Link>
+    </form>
+  </div>
+</div>
+`;
