@@ -99,7 +99,7 @@ class ViewRecipe extends Component {
     axios
       .get(`${BASE_URL}/api/v1/categories/${catId}/recipes?page=${page}`, { headers })
       .then((response) => {
-        this.setState({ recipes: response.data.recipes });
+        this.setState({ recipes: response.data.recipes, total: response.data.total });
       })
       .catch((error) => {
         if (error.response) {
