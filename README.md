@@ -1,4 +1,4 @@
-https://travis-ci.org/shakirandagire/YummyReact.svg?branch=register-user
+[![Build Status](https://travis-ci.org/shakirandagire/YummyReact.svg?branch=register-user)](https://travis-ci.org/shakirandagire/YummyReact)
 
 # Yummy Recipes React App
 
