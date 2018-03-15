@@ -42,7 +42,7 @@ exports[`<Main/> should render main 1`] = `
        View our amazing recipes by simply login
     </h3>
     <button
-      className="btn btn-default formsave"
+      className="btn btn-default formsave login"
       type="submit"
     >
       <Link
@@ -56,7 +56,7 @@ exports[`<Main/> should render main 1`] = `
       Do not have an account with us:
     </h4>
     <button
-      className="btn btn-default formsave"
+      className="btn btn-default formsave register"
       type="submit"
     >
       <Link

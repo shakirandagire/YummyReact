@@ -13,5 +13,11 @@ describe('<Main/>', () => {
   it('should render main', () => {
     expect(shallowToJson(component)).toMatchSnapshot();
   });
-});
 
+  it('should login on click', () => {
+    component.find('.btn-default .login').simulate('click');
+  });
+  it('should register on click', () => {
+    component.find('.btn-default .register').simulate('click');
+  });
+});

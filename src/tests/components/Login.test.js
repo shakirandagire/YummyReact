@@ -15,4 +15,8 @@ describe('<Login/>', () => {
   it('should have handle login method', () => {
     expect(component.instance().handleLogin({ preventDefault }));
   });
+  it('should have initial state', () => {
+    expect(component.state().email).toEqual("");
+    expect(component.state().password).toEqual("");
+  });
 });

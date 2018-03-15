@@ -24,4 +24,9 @@ describe('<AddRecipe/>', () => {
   it('should have add recipe method', () => {
     expect(component.instance().handleAddRecipe({ preventDefault }));
   });
+  it('should have initial state', () => {
+    expect(component.state().recipename).toEqual("");
+    expect(component.state().recipe_description).toEqual("");
+    expect(component.state().instructions).toEqual("");
+  });
 });

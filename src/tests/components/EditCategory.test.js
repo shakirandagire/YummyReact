@@ -25,5 +25,9 @@ describe('<EditCategory/>', () => {
   it('should have edit category method', () => {
     expect(component.instance().handleEditCategory({ preventDefault }));
   });
+  it('should have initial state', () => {
+    expect(component.state().categoryname).toEqual("");
+    expect(component.state().category_description).toEqual("");
+  });
 });
 

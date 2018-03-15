@@ -174,24 +174,24 @@ class ViewCategory extends Component {
 export default ViewCategory;
 
 // Component for the cards that a populated with categories
-const Category = props => (
+export const Category = props => (
   <div className="col-sm-6 col-md-4" >
     <div className="card">
       <div className="card-block">
         <h3 className="card-title">{props.categoryname}</h3>
         <p className="card-text">{props.category_description}</p>
-        <button type="button" className="btn btn-danger btn-sm" onClick={props.deleteCategories}>
+        <button type="button" className="btn btn-danger btn-sm delete" onClick={props.deleteCategories}>
           <span className="glyphicon glyphicon-trash" />Delete
         </button>
-        <Link to={`edit-categories/${props.category_id}`} className="btn btn-success btn-sm" >
+        <Link to={`edit-categories/${props.category_id}`} className="btn btn-success btn-sm edit" >
           <span className="glyphicon glyphicon-edit" /> Edit
         </Link>
 
-        <Link to={`add-recipes/${props.category_id}/recipes`} className="btn btn-success btn-sm" >
+        <Link to={`add-recipes/${props.category_id}/recipes`} className="btn btn-success btn-sm add" >
           <span className="glyphicon glyphicon-edit" /> Add Recipes
         </Link>
 
-        <Link to={`view-recipes/${props.category_id}/recipes`} className="btn btn-success btn-sm" >
+        <Link to={`view-recipes/${props.category_id}/recipes`} className="btn btn-success btn-sm view" >
           <span className="glyphicon glyphicon-edit" /> View Recipes
         </Link>
       </div>

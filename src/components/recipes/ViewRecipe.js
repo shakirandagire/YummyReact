@@ -163,18 +163,18 @@ class ViewRecipe extends Component {
 export default ViewRecipe;
 
 // Component for the cards that a populated with recipes
-const Recipe = props => (
+export const Recipe = props => (
   <div className="col-sm-6 col-md-4" >
     <div className="card">
       <div className="card-block">
         <h3 className="card-title">{props.recipename}</h3>
         <p className="card-text">{props.recipe_description}</p>
         <p className="card-text">{props.instructions}</p>
-        <button type="button" className="btn btn-danger btn-sm" onClick={props.deleteRecipes}>
+        <button type="button" className="btn btn-danger btn-sm delete" onClick={props.deleteRecipes}>
           <span className="glyphicon glyphicon-trash" /> Delete
         </button>
 
-        <Link to={`/edit-recipes/${props.category_identity}/recipes/${props.recipe_id}`} className="btn btn-success btn-sm" >
+        <Link to={`/edit-recipes/${props.category_identity}/recipes/${props.recipe_id}`} className="btn btn-success btn-sm edit" >
           <span className="glyphicon glyphicon-edit" /> Edit
         </Link>
 

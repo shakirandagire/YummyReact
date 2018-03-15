@@ -17,5 +17,10 @@ describe('<AddCategory/>', () => {
   it('should have add category method', () => {
     expect(component.instance().handleAddCategory({ preventDefault }));
   });
+
+  it('should have initial state', () => {
+    expect(component.state().categoryname).toEqual("");
+    expect(component.state().category_description).toEqual("");
+  });
 });
 

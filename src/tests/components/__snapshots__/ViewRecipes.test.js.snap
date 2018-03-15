@@ -1,5 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Recipe /> should render view recipes 1`] = `
+<div
+  className="col-sm-6 col-md-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-block"
+    >
+      <h3
+        className="card-title"
+      />
+      <p
+        className="card-text"
+      />
+      <p
+        className="card-text"
+      />
+      <button
+        className="btn btn-danger btn-sm delete"
+        type="button"
+      >
+        <span
+          className="glyphicon glyphicon-trash"
+        />
+         Delete
+      </button>
+      <Link
+        className="btn btn-success btn-sm edit"
+        replace={false}
+        to="/edit-recipes/undefined/recipes/undefined"
+      >
+        <span
+          className="glyphicon glyphicon-edit"
+        />
+         Edit
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<ViewRecipes/> should render view recipes 1`] = `
 <div
   className="my_container backgimg"
