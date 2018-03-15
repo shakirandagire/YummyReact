@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/shakirandagire/YummyReact.svg?branch=register-user)](https://travis-ci.org/shakirandagire/YummyReact)
+[![Coverage Status](https://coveralls.io/repos/github/shakirandagire/YummyReact/badge.svg?branch=register-user)](https://coveralls.io/github/shakirandagire/YummyReact?branch=register-user)
 
 # Yummy Recipes React App
 
