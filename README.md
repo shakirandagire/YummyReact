@@ -1,3 +1,5 @@
+https://travis-ci.org/shakirandagire/YummyReact.svg?branch=register-user
+
 # Yummy Recipes React App
 
 Yummy Recipes application using react library that consumes a flask API:
