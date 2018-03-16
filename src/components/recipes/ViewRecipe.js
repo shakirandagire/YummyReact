@@ -16,6 +16,7 @@ class ViewRecipe extends Component {
       q: '',
       perPage: 6,
       total: '',
+      page:'1'
     };
 
     componentDidMount() {
@@ -28,7 +29,7 @@ class ViewRecipe extends Component {
       axios
         .get(`${BASE_URL}/api/v1/categories/${categoryId}/recipes`, { headers })
         .then((response) => {
-          this.setState({ recipes: response.data.recipes });
+          this.setState({ recipes: response.data.recipes , total: response.data.total });
         })
         .catch((error) => {
           if (error.response) {
@@ -96,10 +97,11 @@ class ViewRecipe extends Component {
     event.preventDefault();
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     const catId = this.props.match.params.id;
+
     axios
       .get(`${BASE_URL}/api/v1/categories/${catId}/recipes?page=${page}`, { headers })
       .then((response) => {
-        this.setState({ recipes: response.data.recipes, total: response.data.total });
+        this.setState({ recipes: response.data.recipes });
       })
       .catch((error) => {
         if (error.response) {

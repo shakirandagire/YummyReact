@@ -1,8 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import ViewCategory ,{ Category } from '../../components/categories/ViewCategory';
-
+import sinon from 'sinon';
+import ViewCategory,{ Category } from '../../components/categories/ViewCategory';
+import EditCategory from '../../components/categories/EditCategory';
 
 describe('<ViewCategory/>', () => {
   const component = shallow(<ViewCategory />);
@@ -19,7 +20,6 @@ describe('<ViewCategory/>', () => {
   it('should have get categories method', () => {
     expect(component.instance().getCategories({ preventDefault }));
   });
-
   it('should have edit categories method', () => {
     expect(component.instance().editCategories({ preventDefault }));
   });
@@ -34,13 +34,18 @@ describe('<ViewCategory/>', () => {
     expect(component.state().q).toEqual("");
     expect(component.state().perPage).toEqual(6);
     expect(component.state().total).toEqual("");
-
   });
-
-
 });
 
 describe('<Category/>', () => {
+  const params = {
+    match: {
+      params: {
+        category_id: 1,
+      },
+    },
+  };
+  const preventDefault = jest.fn();
   const component = shallow(<Category />);
   it('should render properly', () => {
     expect(component.length).toBe(1);
@@ -60,5 +65,10 @@ describe('<Category/>', () => {
   });
   it('should edit on click', () => {
     component.find('.btn-success .view').simulate('click');
+  });
+  it('should edit on click', () => {
+    const wrapper = shallow(<EditCategory match={{ params }} />);
+    component.find('.btn-success .edit').simulate('click');
+    expect(wrapper.instance().handleEditCategory({ preventDefault }));
   });
 });
