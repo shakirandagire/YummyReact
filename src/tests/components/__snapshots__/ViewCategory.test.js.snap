@@ -1,5 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Category/> should render view categories 1`] = `
+<div
+  className="col-sm-6 col-md-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-block"
+    >
+      <h3
+        className="card-title"
+      />
+      <p
+        className="card-text"
+      />
+      <button
+        className="btn btn-danger btn-sm delete"
+        type="button"
+      >
+        <span
+          className="glyphicon glyphicon-trash"
+        />
+        Delete
+      </button>
+      <Link
+        className="btn btn-success btn-sm edit"
+        replace={false}
+        to="edit-categories/undefined"
+      >
+        <span
+          className="glyphicon glyphicon-edit"
+        />
+         Edit
+      </Link>
+      <Link
+        className="btn btn-success btn-sm add"
+        replace={false}
+        to="add-recipes/undefined/recipes"
+      >
+        <span
+          className="glyphicon glyphicon-edit"
+        />
+         Add Recipes
+      </Link>
+      <Link
+        className="btn btn-success btn-sm view"
+        replace={false}
+        to="view-recipes/undefined/recipes"
+      >
+        <span
+          className="glyphicon glyphicon-edit"
+        />
+         View Recipes
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<ViewCategory/> should render view categories 1`] = `
 <div
   className="my_container backgimg"
