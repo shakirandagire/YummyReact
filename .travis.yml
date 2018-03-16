@@ -3,7 +3,7 @@ node_js:
   - "8.9.4"
 
 script:
-  - jest --coverage
+  - jest
 
 after_success:
-  - coveralls < coverage/lcov.info
+  - 'cat ./coverage/lcov.info | ./node_modules/.bin/coveralls'
