@@ -3,7 +3,7 @@ node_js:
   - "8.9.4"
 
 script:
-  - npm test --u -- --coverage
+  - jest
 
 after_success:
   - coveralls < coverage/lcov.info
