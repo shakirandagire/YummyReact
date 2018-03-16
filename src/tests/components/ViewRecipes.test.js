@@ -1,21 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import ViewRecipes , { Recipe } from '../../components/recipes/ViewRecipe';
+import ViewRecipes, { Recipe } from '../../components/recipes/ViewRecipe';
+import EditRecipe from '../../components/recipes/EditRecipe';
 
 describe('<ViewRecipes/>', () => {
   const params = {
     match: {
       params: {
-        id: 1,
+        category_id: 1,
       },
     },
   };
+
   const preventDefault = jest.fn();
   const component = shallow(<ViewRecipes match={{ params }} />);
-  it('should render properly', () => {
-    expect(component.length).toBe(1);
-  });
   it('should render view recipes', () => {
     expect(shallowToJson(component)).toMatchSnapshot();
   });
@@ -34,26 +33,28 @@ describe('<ViewRecipes/>', () => {
     expect(component.state().q).toEqual("");
     expect(component.state().perPage).toEqual(6);
     expect(component.state().total).toEqual("");
-
   });
 });
 
-
 describe('<Recipe />', () => {
-  const component = shallow(<Recipe />);
-  it('should render properly', () => {
-    expect(component.length).toBe(1);
-  });
+  const params = {
+    match: {
+      params: {
+        category_id: 1,
+      },
+    },
+  };
 
+  const preventDefault = jest.fn();
+  const component = shallow(<Recipe />);
   it('should render view recipes', () => {
     expect(shallowToJson(component)).toMatchSnapshot();
   });
 
-  it('should delete on click', () => {
-    component.find('.btn-danger .delete').simulate('click');
-  });
   it('should edit on click', () => {
+    const wrapper = shallow(<EditRecipe match={{ params }} />);
     component.find('.btn-success .edit').simulate('click');
+    expect(wrapper.instance().handleEditRecipe({ preventDefault }));
   });
 });
 

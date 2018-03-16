@@ -16,7 +16,7 @@ exports[`<AddRecipe/> should render add recipes 1`] = `
       >
         Recipe Name:
         <input
-          className="form-control"
+          className="form-control recipename"
           name="recipename"
           onChange={[Function]}
           required={true}
@@ -29,7 +29,7 @@ exports[`<AddRecipe/> should render add recipes 1`] = `
       >
         Description:
         <input
-          className="form-control"
+          className="form-control recipe_description"
           name="recipe_description"
           onChange={[Function]}
           required={true}
@@ -42,7 +42,7 @@ exports[`<AddRecipe/> should render add recipes 1`] = `
       >
         Instructions:
         <textarea
-          className="form-control"
+          className="form-control instructions"
           name="instructions"
           onChange={[Function]}
           required={true}

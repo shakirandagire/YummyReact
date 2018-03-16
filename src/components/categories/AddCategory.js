@@ -25,9 +25,7 @@ class AddCategory extends Component {
           .post(`${BASE_URL}/api/v1/categories/`, this.state, { headers })
           .then((response) => {
             notify.show(response.data.message, 'success', 1000);
-            this.props
-              .history
-              .push('/view-categories');
+            this.props.history.push('/view-categories');
           })
           .catch((error) => {
             if (error.response) {
@@ -48,11 +46,11 @@ class AddCategory extends Component {
 
                 <div className="form-group">
                   Category Name:
-                  <input type="text" name="categoryname" className="form-control" required onChange={this.handleInputChange} value={this.state.categoryname} />
+                  <input type="text" name="categoryname" className="form-control categoryname" required onChange={this.handleInputChange} value={this.state.categoryname} />
                 </div>
                 <div className="form-group">
                   Description:
-                  <input type="text" name="category_description" className="form-control" required onChange={this.handleInputChange} value={this.state.category_description} />
+                  <input type="text" name="category_description" className="form-control category_description" required onChange={this.handleInputChange} value={this.state.category_description} />
                 </div>
 
                 <button type="submit" className="btn btn-danger formsave" >Save</button>

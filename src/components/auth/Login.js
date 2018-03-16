@@ -30,9 +30,7 @@ class Login extends Component {
       .post(`${BASE_URL}/api/v1/auth/login`, data)
       .then((response) => {
         localStorage.setItem('accessToken', response.data.access_token);
-        this.props
-          .history
-          .push('/view-categories');
+        this.props.history.push('/view-categories');
       })
       .catch((error) => {
         if (error.response) {
@@ -60,11 +58,11 @@ class Login extends Component {
           <form onSubmit={this.handleLogin}>
             <div className="form-group">
              Email:
-              <input type="email" name="email" className="form-control" required onChange={this.handleInputChange} value={email} />
+              <input type="email" name="email" className="form-control email" required onChange={this.handleInputChange} value={email} />
             </div>
             <div className="form-group">
               Password:
-              <input type="password" name="password" className="form-control" required onChange={this.handleInputChange} value={password} />
+              <input type="password" name="password" className="form-control password" required onChange={this.handleInputChange} value={password} />
             </div>
             <Link to="/reset-password"> Forgot password </Link>
             <div>

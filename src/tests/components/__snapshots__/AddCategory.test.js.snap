@@ -16,7 +16,7 @@ exports[`<AddCategory/> should render add categories 1`] = `
       >
         Category Name:
         <input
-          className="form-control"
+          className="form-control categoryname"
           name="categoryname"
           onChange={[Function]}
           required={true}
@@ -29,7 +29,7 @@ exports[`<AddCategory/> should render add categories 1`] = `
       >
         Description:
         <input
-          className="form-control"
+          className="form-control category_description"
           name="category_description"
           onChange={[Function]}
           required={true}

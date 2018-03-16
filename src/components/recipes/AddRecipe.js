@@ -56,15 +56,15 @@ class AddRecipe extends Component {
 
                 <div className="form-group">
                   Recipe Name:
-                  <input type="text" name="recipename" className="form-control" required onChange={this.handleInputChange} value={this.state.recipename} />
+                  <input type="text" name="recipename" className="form-control recipename" required onChange={this.handleInputChange} value={this.state.recipename} />
                 </div>
                 <div className="form-group">
                   Description:
-                  <input type="text-area" name="recipe_description" className="form-control" required onChange={this.handleInputChange} value={this.state.recipe_description} />
+                  <input type="text-area" name="recipe_description" className="form-control recipe_description" required onChange={this.handleInputChange} value={this.state.recipe_description} />
                 </div>
                 <div className="form-group">
                   Instructions:
-                  <textarea name="instructions" className="form-control" required onChange={this.handleInputChange} value={this.state.instructions} />
+                  <textarea name="instructions" className="form-control instructions" required onChange={this.handleInputChange} value={this.state.instructions} />
                 </div>
 
                 <button type="submit" className="btn btn-danger formsave" >Save</button>
