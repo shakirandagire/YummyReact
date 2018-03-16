@@ -38,6 +38,8 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.2",
     "jest-babel-istanbul": "^0.1.0",
-    "sinon": "^4.4.3"
+    "sinon": "^4.4.3",
+    "coveralls": "^3.0.0",
+    "jest": { "collectCoverage": true }
   }
 }

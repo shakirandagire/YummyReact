@@ -34,4 +34,11 @@ describe('<Register/>', () => {
     expect(component.find('form').simulate('submit', { preventDefault }));
     expect(preventDefault).toBeCalled();
   });
+
+  it('should render form inputs', () => {
+    expect(component.find('.email').length).toEqual(1);
+    expect(component.find('.password').length).toEqual(1);
+    expect(component.find('.security_question').length).toEqual(1);
+    expect(component.find('.security_answer').length).toEqual(1);
+  });
 });

@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import sinon from 'sinon';
 import EditCategory from '../../components/categories/EditCategory';
+import Navigation from '../../components/other/Navigation';
 
 
 describe('<EditCategory/>', () => {
@@ -40,6 +41,10 @@ describe('<EditCategory/>', () => {
     expect(component.find('form')).toHaveLength(1);
     expect(component.find('form').simulate('submit', { preventDefault }));
     expect(preventDefault).toBeCalled();
+  });
+  it('should render <Navigation /> component', () => {
+    const wrapper = shallow(<Navigation />);
+    expect(wrapper.length).toEqual(1);
   });
 });
 

@@ -4,6 +4,7 @@ import { shallowToJson } from 'enzyme-to-json';
 import sinon from 'sinon';
 import ViewCategory,{ Category } from '../../components/categories/ViewCategory';
 import EditCategory from '../../components/categories/EditCategory';
+import Navigation from '../../components/other/Navigation';
 
 describe('<ViewCategory/>', () => {
   const component = shallow(<ViewCategory />);
@@ -70,5 +71,10 @@ describe('<Category/>', () => {
     const wrapper = shallow(<EditCategory match={{ params }} />);
     component.find('.btn-success .edit').simulate('click');
     expect(wrapper.instance().handleEditCategory({ preventDefault }));
+  });
+
+  it('should render <Navigation /> component', () => {
+    const wrapper = shallow(<Navigation />);
+    expect(wrapper.length).toEqual(1);
   });
 });
