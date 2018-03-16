@@ -67,19 +67,19 @@ class Register extends Component {
 
               <div className="form-group">
                 Email:
-                <input type="email" name="email" className="form-control" required onChange={this.handleInputChange} value={email} />
+                <input type="email" name="email" className="form-control email" required onChange={this.handleInputChange} value={email} />
               </div>
               <div className="form-group">
                 Password:
-                <input type="password" name="password" className="form-control" required onChange={this.handleInputChange} value={password} />
+                <input type="password" name="password" className="form-control password" required onChange={this.handleInputChange} value={password} />
               </div>
               <div className="form-group">
                 Security Question:
-                <input type="text" name="security_question" className="form-control" required onChange={this.handleInputChange} value={security_question} />
+                <input type="text" name="security_question" className="form-control security_question" required onChange={this.handleInputChange} value={security_question} />
               </div>
               <div className="form-group">
                 Security Answer:
-                <input type="text" name="security_answer" className="form-control" required onChange={this.handleInputChange} value={security_answer} />
+                <input type="text" name="security_answer" className="form-control security_answer" required onChange={this.handleInputChange} value={security_answer} />
               </div>
 
               <button type="submit" className="btn btn-danger formsave" >Sign Up</button>

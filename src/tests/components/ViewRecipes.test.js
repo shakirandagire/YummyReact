@@ -18,22 +18,22 @@ describe('<ViewRecipes/>', () => {
   it('should render view recipes', () => {
     expect(shallowToJson(component)).toMatchSnapshot();
   });
-  it('should have get recipes method', () => {
-    expect(component.instance().getRecipes({ preventDefault }));
-  });
-  it('should have delete recipe method', () => {
-    expect(component.instance().deleteRecipes({ preventDefault }));
-  });
-  it('should have handle page method', () => {
-    expect(component.instance().handlePage({ preventDefault }));
-  });
+//   it('should have get recipes method', () => {
+//     expect(component.instance().getRecipes({ preventDefault }));
+//   });
+//   it('should have delete recipe method', () => {
+//     expect(component.instance().deleteRecipes({ preventDefault }));
+//   });
+//   it('should have handle page method', () => {
+//     expect(component.instance().handlePage({ preventDefault }));
+//   });
 
-  it('should have initial state', () => {
-    expect(component.state().recipes).toEqual([]);
-    expect(component.state().q).toEqual("");
-    expect(component.state().perPage).toEqual(6);
-    expect(component.state().total).toEqual("");
-  });
+//   it('should have initial state', () => {
+//     expect(component.state().recipes).toEqual([]);
+//     expect(component.state().q).toEqual("");
+//     expect(component.state().perPage).toEqual(6);
+//     expect(component.state().total).toEqual("");
+//   });
 });
 
 describe('<Recipe />', () => {
@@ -51,10 +51,10 @@ describe('<Recipe />', () => {
     expect(shallowToJson(component)).toMatchSnapshot();
   });
 
-  it('should edit on click', () => {
-    const wrapper = shallow(<EditRecipe match={{ params }} />);
-    component.find('.btn-success .edit').simulate('click');
-    expect(wrapper.instance().handleEditRecipe({ preventDefault }));
-  });
+  // it('should edit on click', () => {
+  //   const wrapper = shallow(<EditRecipe match={{ params }} />);
+  //   component.find('.btn-success .edit').simulate('click');
+  //   expect(wrapper.instance().handleEditRecipe({ preventDefault }));
+  // });
 });
 

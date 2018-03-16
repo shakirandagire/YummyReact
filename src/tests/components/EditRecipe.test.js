@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import EditRecipe from '../../components/recipes/EditRecipe';
-
+import Navigation from '../../components/other/Navigation';
 
 describe('<EditRecipe/>', () => {
   const params = {
@@ -39,5 +39,9 @@ describe('<EditRecipe/>', () => {
     expect(component.find('form')).toHaveLength(1);
     expect(component.find('form').simulate('submit', { preventDefault }));
     expect(preventDefault).toBeCalled();
+  });
+  it('should render <Navigation /> component', () => {
+    const wrapper = shallow(<Navigation />);
+    expect(wrapper.length).toEqual(1);
   });
 });

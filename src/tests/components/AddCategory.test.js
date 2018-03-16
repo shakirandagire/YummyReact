@@ -4,9 +4,10 @@ import { shallowToJson } from 'enzyme-to-json';
 import AddCategory from '../../components/categories/AddCategory';
 import Navigation from '../../components/other/Navigation';
 
-const component = shallow(<AddCategory />);
-const preventDefault = jest.fn();
+
 describe('<AddCategory/>', () => {
+  const component = shallow(<AddCategory />);
+  const preventDefault = jest.fn();
   it('should render properly', () => {
     expect(component.length).toBe(1);
   });

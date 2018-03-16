@@ -37,7 +37,7 @@ exports[`<Register/> should render pagination 1`] = `
       >
         Email:
         <input
-          className="form-control"
+          className="form-control email"
           name="email"
           onChange={[Function]}
           required={true}
@@ -50,7 +50,7 @@ exports[`<Register/> should render pagination 1`] = `
       >
         Password:
         <input
-          className="form-control"
+          className="form-control password"
           name="password"
           onChange={[Function]}
           required={true}
@@ -63,7 +63,7 @@ exports[`<Register/> should render pagination 1`] = `
       >
         Security Question:
         <input
-          className="form-control"
+          className="form-control security_question"
           name="security_question"
           onChange={[Function]}
           required={true}
@@ -76,7 +76,7 @@ exports[`<Register/> should render pagination 1`] = `
       >
         Security Answer:
         <input
-          className="form-control"
+          className="form-control security_answer"
           name="security_answer"
           onChange={[Function]}
           required={true}
