@@ -18,6 +18,6 @@ describe('<Main/>', () => {
     component.find('.btn-default .login').simulate('click');
   });
   it('should register on click', () => {
-    component.find('.btn-default .register').simulate('click');
+    component.find('.btn-default .registering').simulate('click');
   });
 });

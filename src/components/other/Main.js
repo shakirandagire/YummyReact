@@ -23,7 +23,7 @@ class Main extends Component {
           <h3> View our amazing recipes by simply login</h3>
           <button type="submit" className="btn btn-default formsave login"><Link to="/login"> Login </Link></button>
           <h4>Do not have an account with us:</h4>
-          <button type="submit" className="btn btn-default formsave register"><Link to="/register"> Sign Up </Link></button>
+          <button type="submit" className="btn btn-default formsave registering"><Link to="/register"> Sign Up </Link></button>
         </div>
       </div>
 
