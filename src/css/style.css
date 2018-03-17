@@ -12,7 +12,7 @@
 .backgimg {
     background: url("img/Food.jpg");
     background-repeat: no-repeat;
-    padding-bottom: 30em!important
+    padding-bottom: 20em;
     
 }
 
@@ -54,4 +54,7 @@
 }
 #button{
     margin-left: 60em;
+}
+.card{
+    margin: 0.7em auto;
 }
