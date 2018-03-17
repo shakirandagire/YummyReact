@@ -26,11 +26,11 @@ npm start
 ```
 ## Run the tests
 ```
-npm test
+jest
 ```
 
 ## Testing coverage
 ```
-npm test -u -- --coverage
+jest --coverage
 ```
 
