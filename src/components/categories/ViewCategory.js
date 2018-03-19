@@ -27,6 +27,7 @@ class ViewCategory extends Component {
     axios
       .get(`${BASE_URL}/api/v1/categories/`, { headers })
       .then((response) => {
+        console.log(response);
         this.setState({ categories: response.data.categories, total: response.data.total });
       })
       .catch((error) => {
@@ -40,7 +41,6 @@ class ViewCategory extends Component {
 
   // Function for handling pagination
   handlePage = (event, perPage, page) => {
-    console.log("iam here");
     event.preventDefault();
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     axios

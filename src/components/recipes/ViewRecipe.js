@@ -16,8 +16,7 @@ class ViewRecipe extends Component {
       q: '',
       perPage: 6,
       total: '',
-      page:'1'
-    };
+    }
 
     componentDidMount() {
       this.getRecipes();
@@ -29,7 +28,8 @@ class ViewRecipe extends Component {
       axios
         .get(`${BASE_URL}/api/v1/categories/${categoryId}/recipes`, { headers })
         .then((response) => {
-          this.setState({ recipes: response.data.recipes , total: response.data.total });
+          console.log(response.data.total);
+          this.setState({ recipes: response.data.recipes, total: response.data.total });
         })
         .catch((error) => {
           if (error.response) {
@@ -53,7 +53,6 @@ class ViewRecipe extends Component {
             this.getRecipes();
           }
         })
-
         .catch((error) => {
           if (error.response) {
             notify.show(error.response.data.message, 'success');
@@ -94,14 +93,12 @@ class ViewRecipe extends Component {
   }
   // Function for handling page
   handlePage = (event, perPage, page) => {
-    event.preventDefault();
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     const catId = this.props.match.params.id;
-
     axios
       .get(`${BASE_URL}/api/v1/categories/${catId}/recipes?page=${page}`, { headers })
       .then((response) => {
-        this.setState({ recipes: response.data.recipes });
+        this.setState({ recipes: response.data.recipes, total: response.data.total });
       })
       .catch((error) => {
         if (error.response) {
@@ -162,8 +159,6 @@ class ViewRecipe extends Component {
   }
 }
 
-export default ViewRecipe;
-
 // Component for the cards that a populated with recipes
 export const Recipe = props => (
   <div className="col-sm-6 col-md-4" >
@@ -185,3 +180,6 @@ export const Recipe = props => (
   </div>
 
 );
+
+export default ViewRecipe;
+
