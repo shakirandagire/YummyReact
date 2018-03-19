@@ -6,7 +6,6 @@ import React from 'react';
 
 const Pagination = (props) => {
   const { perPage, total, handlePage } = props;
-  console.log(props);
 
   const pages = [];
   let pageTotal = Math.floor(total / perPage);
