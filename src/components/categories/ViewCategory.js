@@ -27,7 +27,6 @@ class ViewCategory extends Component {
     axios
       .get(`${BASE_URL}/api/v1/categories/`, { headers })
       .then((response) => {
-        console.log(response);
         this.setState({ categories: response.data.categories, total: response.data.total });
       })
       .catch((error) => {

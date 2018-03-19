@@ -28,7 +28,6 @@ class ViewRecipe extends Component {
       axios
         .get(`${BASE_URL}/api/v1/categories/${categoryId}/recipes`, { headers })
         .then((response) => {
-          console.log(response.data.total);
           this.setState({ recipes: response.data.recipes, total: response.data.total });
         })
         .catch((error) => {
