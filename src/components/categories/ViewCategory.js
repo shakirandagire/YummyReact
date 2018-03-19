@@ -40,7 +40,6 @@ class ViewCategory extends Component {
 
   // Function for handling pagination
   handlePage = (event, perPage, page) => {
-    console.log("iam here");
     event.preventDefault();
     const headers = { Authorization: `Bearer ${localStorage.getItem('accessToken')}` };
     axios
